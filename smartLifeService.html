@@ -103,12 +103,14 @@ function bindButtonClick(){
 			success: function(data) {
 				$("#contenuto").html(data);
 				$("#back").attr("data-goto", "sl_details");
+				$("#back").html("Vai ai dettagli");
 				bindBittonClick();
 			}
 			});//end ajax
 		}// end if
-		if($(this).attr("value")=="sl_details"){
+		if($(this).attr("value")=="sl_details"){;
 			$("#back").attr("data-goto", "back");
+			$("#back").html("Torna indietro");
 			loadDetails();
 		}
 	});//end click()		
