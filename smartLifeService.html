@@ -1,0 +1,118 @@
+<!DOCTYPE html><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>Smart Life Service</title>
+<!-- Mobile viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<link rel="shortcut icon" href="images/favicon.ico"  type="image/x-icon">
+
+<!-- CSS-->
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Ubuntu' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/basic-style.css">
+<!-- end CSS-->
+  
+<!-- header area -->
+	
+<div id="head_bar"></div>
+    <header class="wrapper clearfix">
+        <table>
+          <tr>
+            <td><a href="index.html"><img src="images/basic-logo.png" alt="logo" id="logo_image"></a></td>
+            <td> <!-- main navigation -->
+      <nav id="topnav" role="navigation">
+         <div class="menu-toggle">Menu</div>  
+          <ul class="srt-menu" id="menu-main-navigation">
+              <li><a href="promotion.html">PROMOTIONS</a></li>
+              <li><a href="categoriesOfDevices.html">DEVICES</a></li>
+              <li><a href="categoriesOfSmartLifeServices.html">SL SERVICES</a></li>
+              <li><a href="categoriesOfAssistanceService.html">ASSISTANCE</a></li>	
+          </ul> 
+		</nav><!-- end main navigation --></td>
+          </tr>
+        </table>
+        
+       
+  
+</header><!-- end header -->
+ 
+  <div>
+  <a href="index.html">Home</a> &raquo; <a href="categoriesOfSmartLifeServices.html">Categories of Smart Life Services</a> &raquo; <a href="SmartLifeServicesByCategory.html">Smart Life Service by Category</a> &raquo; Smart Life Service
+ </div>
+ 
+
+<!-- main content area -->   
+<div id="main" class="wrapper">
+<!-- content area --> 
+	<section id="content" class="wide-content">
+    	<div class="row">
+      		<div class="grid_12" id="services_details"> Loading... </div><!--THIS DIV WILL BE FILLED BY AJAX CALL-->
+		</div>
+    </section>
+</div>
+
+<!-- footer area -->    
+<footer>
+	<div id="colophon" class="wrapper clearfix">
+    	<div class="grid_3"><a href="#" onclick="alert('not implemented')">Telecom Italia</a></div>
+        <div class="grid_3"><a href="WhoWeAre_Testimonials.html">Chi Siamo</a></div>
+        <div class="grid_3 rightfloat"><a href="contattaci.html">Contattaci</a></div>
+    </div>
+    
+</footer><!-- #end footer area --> 
+</body>
+
+<script src="js/jquery-3.0.0.min.js"></script> 
+<script src="js/main.js"></script>
+<script>
+jQuery(document).ready(function($){
+	loadDetails();	
+});//end ready
+function loadDetails(){
+	$.ajax({
+			url: "http://projectalunnicalcaterra.altervista.org/php/chiamate.php",
+			data: {quest:"services_details", servID: localStorage.servID},
+			type: "POST",
+			crossDomain: true, 
+			success: function(data) {
+				$("#services_details").html(data);
+				bindButtonClick();
+			}
+		});
+}
+function bindButtonClick(){
+	$("#back").click(function(){
+		if($(this).data("goto")=="back")
+			window.history.back();
+		else{
+			loadDetails();
+		}
+			
+	});//end Click
+	
+	$("a.hand").click(function() {//navigation of the buttons Dettagli
+		if($(this).attr("value")=="sl_features"){
+			$.ajax({
+			url: "http://projectalunnicalcaterra.altervista.org/php/chiamate.php",
+			data: {quest:"sl_features", type: localStorage.type, servID: localStorage.servID},
+			type: "POST",
+			crossDomain: true,
+			success: function(data) {
+				$("#contenuto").html(data);
+				$("#back").attr("data-goto", "sl_details");
+				bindBittonClick();
+			}
+			});//end ajax
+		}// end if
+		if($(this).attr("value")=="sl_details"){
+			$("#back").attr("data-goto", "back");
+			loadDetails();
+		}
+	});//end click()		
+}
+</script>
+
+</html>

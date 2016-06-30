@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>CALCATERRA ALUNNI PROJECT - index</title>
+
+<!-- Mobile viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<link rel="shortcut icon" href="favicon.ico"  type="image/x-icon">
+
+<!-- CSS-->
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Ubuntu' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/basic-style.css">
+<!-- end CSS-->
+</head>
+
+<body id="home">
+  
+<!-- header area -->
+<div class="head_bar"></div>
+<header class="wrapper clearfix">
+     <!-- main navigation --><div id="topnav_home">
+      <nav id="topnav" role="navigation">
+           <div class="menu-toggle">Menu</div>  
+          <ul class="srt-menu" id="menu-main-navigation">
+          <li>
+          </li>
+              <li><a href="promotion.html">PROMOTIONS</a></li>
+              <li><a href="categoriesOfDevices.html">DEVICES</a></li>
+              <li><a href="categoriesOfSmartLifeServices.html">SL SERVICES</a></li>
+              <li><a href="categoriesOfAssistanceService.html">ASSISTANCE</a></li>
+          </ul>  
+		</nav><!-- end main navigation -->
+  </div>   
+</header><!-- end header -->
+
+<div align="center"><img src="images/index_header.jpg" ></div>
+
+<!-- main content area -->   
+<div id="main" class="wrapper">
+<!-- content area -->    
+	<section id="content" class="wide-content">
+      <div class="row">	
+        <div class="grid_6"><!-- class="background_grey"-->
+        	<h1 class="first-header">CATEGORIES OF DEVICES</h1>
+        	<table width="100%">
+        	  <tr>
+        	    <td><img class="home_categories category hand" value="telefoni" src="images/01_SmartphoneTelefoni_1.png"></td>
+        	    <td><img class="home_categories category hand" value="modem" src="images/03_ModemChiavette.png"></td>
+        	    <td><img class="home_categories category hand" value="tablet" src="images/02_TabletComputer.png"></td>
+        	    <td><img class="home_categories category hand" value ="tv" src="images/04_TVDigitalHome.png"></td>
+      	      </tr>
+      	  	</table>
+        </div>
+        
+        <div class="grid_6"><!-- class="background_grey"-->
+        	<h1 class="first-header">HIGHLIGHTS</h1>
+            <ul>
+            	<li><a href="#" value="1">Assistenza tecnica specializzata con SOS smartphone</a></li>
+                <li><a href="#" value="3">Configurazione email su iPhone</a></li>
+                <li><a href="#" value="33">Variazione Abbonamento</a></li>
+                <li><a href="#" value="altro">Vedi tutti</a></li>
+            </ul>
+        </div>
+      </div><!-- end row -->
+	</section><!-- end content area -->      
+  </div><!-- #end div #main .wrapper -->
+
+
+<!-- footer area -->    
+<footer>
+	<div id="colophon" class="wrapper clearfix">
+    	<div class="grid_3"><a href="#" onClick="alert('not implemented')">Telecom Italia</a></div>
+        <div class="grid_3"><a href="WhoWeAre_Testimonials.html">Chi Siamo</a></div>
+        <div class="grid_3 rightfloat"><a href="contattaci.html">Contattaci</a></div>
+    </div>
+</footer><!-- #end footer area --> 
+</body>
+
+<script src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+$(".category").click(function() {
+	if (typeof(Storage) !== "undefined")
+		localStorage.setItem("type", $(this).attr("value"));
+		location.href='DevicesByCategory.html';
+});	
+$("li a").click(function() {
+	if($(this).attr("value")==="altro")
+		location.href='highlights.html';
+	else if (typeof(Storage) !== "undefined"){
+		localStorage.setItem("assID", $(this).attr("value"));
+		location.href='AssistanceService.html';
+	}
+});	
+</script>
+</html>
