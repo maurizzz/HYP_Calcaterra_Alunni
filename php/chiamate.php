@@ -66,7 +66,7 @@ switch ($quest) {
 
 		echo '</div>'
 		.'<div class="grid_8">'
-		.'<a class="rightfloat hand" id="back" data-goto="back">torna indietro</a>'
+		.'<a class="rightfloat hand" id="back" data-goto="back">Torna indietro</a>'
 		.'<h2>'.$row['nome'].'</h2>'
 		.'<div id="contenuto">'
 		.'Caratteristiche:<br>'
@@ -93,10 +93,8 @@ switch ($quest) {
 		$result = mysqli_query($con,$sql);
 		$row = mysqli_fetch_array($result);
 		echo $row['specifiche']."<br><br>"
-		.'<a href="AvaiableAssisstanceService.html">Servizi di assistenza disponibili</a>
-		<br><a href="AvaiableSLService.html">Smart Life Service Disponibili</a>
-		<a class="hand rightfloat" value="device_details">Torna alla presentazione del Device</a>'
-		;
+		.'<a href="AvailableAssisstanceService.html">Servizi di assistenza disponibili</a>
+		<br><a href="AvailableSLService.html">Smart Life Service Disponibili</a>';
 		break;
     
 //---------------------------------------ASSISTENZA-----------------------------------------//
@@ -158,8 +156,8 @@ switch ($quest) {
 		$sql="SELECT * FROM servizi WHERE id = '".$_POST['servID']."'";
 		$result = mysqli_query($con,$sql);
 		while($row = mysqli_fetch_array($result)){
-			echo 
-			'<div class="grid_12"><a class="rightfloat hand" id="back" data-goto="back">torna indietro</a></div>'.
+			echo
+			'<div class="grid_12"><a class="rightfloat hand" id="back" data-goto="back">Torna indietro</a></div>'.
 			'<div class="grid_12 center"><img src="images_services/'.$row["immagine_head"].'"></div>
 			<div class="grid_8" id="contenuto"><h1>Attivazione:</h1><br>
 			'.$row["attivazione"].'
