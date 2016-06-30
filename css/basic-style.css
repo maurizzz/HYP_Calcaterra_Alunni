@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6{
 	padding:0;
 } 
 
-
+.rightfloat{float:right;}
 /* links */
 a,
 a:visited,
@@ -503,7 +503,7 @@ ul.srt-menu li li li.sfHover ul {
 .text{
 	font-size:24px;
 }
-.rightfloat{float:right;}
+
 
  
 #hero [class*="grid_"] { margin-bottom:-20px;}
